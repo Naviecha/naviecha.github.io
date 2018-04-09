@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+Page Not Found
+</title>
+  
+	
+
+
+
+	
+
+
+<script type="text/javascript">
+	var enabledPost=true 
+	var colorBG= false  
+    var enabledDimmer =  true 
+    var shToken=""
+    var shDomains=""    
+    var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+	console.log("The client device is a "+(isMobile?"mobile":"PC")+".")		
+</script>
+
+  
+
+
+  
+  <meta name="author" content="Alfiansyah" />
+  <meta name="description" content="Just a blog for hosting random programming stuff." />
+
+
+
+<meta name="generator" content="Hugo 0.38.1" />
+
+
+<link rel="shortcut icon" href="https://naviecha.github.io/img/defaultFav.ico">
+
+
+<link rel="canonical" href="" />
+<link rel="alternative" href="/index.xml" title="Alfiansyah Site" type="application/atom+xml" />
+
+<link href="https://cdn.bootcss.com/semantic-ui/2.2.14/semantic.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="/css/site.css" />
+</head>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/semantic.min.js"></script>
+<body>
+  <div id="bg"><script type = "text/javascript">
+var dreamBodyBgSwitchIndex = 0
+if(colorBG) {
+    var dreamBGGradients = [
+        [],
+        ['#40e0d0', '#ff8c00', '#ff0080'], 
+        ['#3e5151', '#decba4'], 
+        ['#11998e', '#38ef7d'], 
+        ['#108dc7', '#ef8e38'], 
+        ['#fc5c7d', '#6a82fb'], 
+        ['#fc466b', '#3f5efb'], 
+        ['#c94b4b', '#4b134f'], 
+        ['#23074d', '#cc5333'], 
+    ]
+    var dreamBody = $('body')
+    var dreamFront = $('.flip-container .front')
+    var dreamBack = $('.flip-container .back')
+    
+    var dreamPrevBgIndex = 0
+    var dreamBodyBgSwitch = []
+    
+    var dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)]
+    dreamBodyBgSwitch.push(dreamBg)
+    setBackground(dreamFront, dreamBg)
+
+    setBackground(dreamBody, dreamBg)
+
+    dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)]
+    dreamBodyBgSwitch.push(dreamBg)
+    setBackground(dreamBack, dreamBg)
+    
+    function connect(arr) {
+        var str = ''
+            for (var i = 0; i < arr.length; i++) {
+                if (i !== arr.length - 1) {
+                    str += arr[i] + ', '
+                } else {
+                    str += arr[i]
+                }
+            }
+        return str
+    }
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min)
+        max = Math.floor(max)
+        var random
+        while (1) {
+            random = Math.floor(Math.random() * (max - min)) + min
+            if (random !== dreamPrevBgIndex) {
+                dreamPrevBgIndex = random
+                break
+            }
+        }
+    	return random
+    }
+    function setBackground(target, gradient) {
+        target.css({
+        background: gradient[0]
+        })
+        target.css({
+        background: 'linear-gradient(to right, ' + connect(gradient) + ')'
+        })
+    }
+}
+else {
+    var blurEff =  0.5 
+	if( false )
+	{	
+    	var images = ""
+    	var randomNumber = Math.floor(Math.random() * images.length)
+    	bgImage = 'url(' + images[randomNumber] + ')'
+    }
+    else
+    	bgImage = 'url(' + "https://raw.githubusercontent.com/UtkarshVerma/hugo-dream-plus/master/static/img/bg1.jpeg" + ')'
+    console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"),bgImage.length -1) )
+    var target = document.getElementById('bg')
+    target.setAttribute("style", "background-image:" + bgImage +"; filter:" + "blur(" + blurEff + "px)")
+}	
+</script>
+</div>
+  <div class="pusher" style="position: relative; background-color: transparent !important">
+  <div class="flipper">
+    <section class="front" style="position: fixed; overflow-x: hidden; height: 100vh">
+      
+<nav class="ui top secondary menu" style="overflow-x: auto; background-color: #00000066;">
+  <div class="item">
+       <i id="ico"class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+   </div>
+
+  <div class="item">
+    <a href="/">
+      <i id="home-ico" class="inverted big link home icon" title="Home"></i>
+    </a>
+  </div>
+
+  
+<div class="item">
+    <a href="/post">
+      <i id="archive-ico" class="inverted big link archive icon" title="Archive"></i>
+    </a>
+  </div>
+  
+
+
+  <div class="item">
+    <a href="/tags">
+      <i id="tags-ico"class="inverted big link tags icon" title="All Tags"></i>
+    </a>
+  </div>
+
+
+  <div class="item">
+    <a href="/categories">
+      <i id="cat-ico"class="inverted big link cubes icon" title="All Categories"></i>
+    </a>
+  </div>
+
+
+
+
+  <div class="item">
+    
+    <i id="prevd-ico" class="disabled inverted big arrow circle outline left icon" title="Previous page"></i>
+    
+  </div>
+   <div class="item">
+    	
+	<a>
+    	<i id="nextd-ico" class="disabled inverted big arrow circle outline right icon" title="Next page"></i></a>
+ 
+  </div>
+
+
+</nav>
+
+ 
+<div class="ui centered grid about">
+  <div class="fifteen wide mobile fifteen wide tablet fifteen wide computer column">
+<section class="ui stacked segments">
+	<header class="ui inverted segment">
+		<h2 class="ui header"><center>Error 404: Page Not Found</center></h2>
+        </header>
+	<article id = "twemoji" class="ui inverted segment">        	
+        	<hr />
+
+<p><h4><center>Oopsie! It seems that the page that you&rsquo;re trying to access doesn&rsquo;t exist. 😟</center></p>
+
+<p><center>If you&rsquo;re sure that it exists, chances are it might have been moved to a new link! You may search for it on the home page. </center><h4></p>
+        
+                <p><center><a class="ui blue label" href="/">Return to Home Page</a></center></p>	 
+	</article>        
+</section>
+</div>
+</div>
+
+    </section>
+    <section class="back" style="position: fixed; overflow-x: hidden; height: 100vh">
+      <nav class="ui top secondary menu" style="background-color: #00000066;">
+  <div class="item">
+    <i id="ico" class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+  </div>
+    
+  <div class="item">
+    <a href="https://github.com/naviecha" target="_blank">
+      <i id="ico" class="inverted big github icon" title="GitHub"></i>
+    </a>
+  </div>
+  
+  
+  <div class="item">
+    <a href="mailto:flo.syndrome@gmail.com">
+      <i id="ico" class="inverted big mail icon" title="Email"></i>
+    </a>
+  </div>
+  
+  
+  <div class="item">
+    <a href="https://twitter.com/flo_syndrome" target="_blank">
+      <i id="ico" class="inverted big twitter icon" title="Twitter"></i>
+    </a>
+  </div>
+  
+  
+  
+
+  
+  
+  <div class="item">
+    <a href="https://www.stackoverflow.com/users/5509946/alfiansyah" target="_blank">
+      <i id="ico" class="inverted big stack overflow icon" title="stackoverflow"></i>
+    </a>
+  </div>
+  
+  
+
+  
+</nav>
+
+<div class="ui centered grid about">
+  <div id="abt" class="sixteen wide mobile fifteen wide tablet fifteen wide computer column about">
+    <section class="ui stacked segments">
+	<header class="ui inverted segment">
+    <h2 class="ui header">
+        So, Who Am I?
+    </h2>
+</header>
+<article id = "abt" class="ui inverted segment" >
+    <hr />
+
+<p><br>
+I’m just another teenager who likes <strong>writing</strong>, <strong>programming</strong> and <strong>making stuff</strong>. Even setting the title as <strong>Who Am I</strong>  for this article is reminding me of <code>whoami</code> in Linux.
+I feel the inner urge to contribute something to the Internet because I love writing and
+I believe posting something online enables users all around the globe to see your work and suggest improvements.</p>
+
+<p>Recently I&rsquo;ve also started taking interest in web designing and hosting the fruitful results of which these site and blogs are!
+I also make <strong>projects</strong> and share them online at <strong>Instructables</strong>, the link of which has been placed on the home page.
+Making stuff is just one of the things I love the most.</p>
+
+<p>That’s all that I can think of right now. Hopefully I’ll add something more to this later on. 😅</p>
+
+<p>Wanna try in touch with me?
+Use the social links above to check out my profiles. I&rsquo;d really appreciate it.</p>
+
+</article>
+
+    
+    </section>
+  </div>
+</div>
+
+    </section>
+  </div>
+  </div>
+  <script type="text/javascript" src="/js/site.js"></script>
+  <script src="/js/twemoji.min.js"></script>
+<script type="text/javascript">
+(function init(){
+    console.log("Twemoji up and making stuff colourful!");
+    twemoji.parse(document.getElementById("abt"));      
+    twemoji.parse(document.getElementById("twemoji"));                
+})()
+</script>
+
+  
+  <body>
+  <div class="ui sidebar inverted vertical menu" style="overflow: hidden !important;">
+<section class="ui top attached center aligned inverted segment">
+  <div class="ui small circular image">
+    
+    <img src="/images/avatar.jpg">
+    
+  </div>
+  <h3 class="ui header">Alfiansyah<div class="sub header" style="color: white;">A keen maker, programmer and an Instructables author.</div>
+  </h3>
+    
+	<a id="tag-category-pop" class="ui red right corner label">		
+	<i class="pointing down icon" title="Click this to pop tags and categories"></i>		
+	</a>
+     
+</section>
+
+
+	
+	<section class="ui attached center aligned inverted segment dream-tags">
+  	
+  	<a class="ui label" href="/tags/django" title="django">django</a>
+  	
+  	<a class="ui label" href="/tags/esp32" title="esp32">esp32</a>
+  	
+  	<a class="ui label" href="/tags/google-code-in" title="google-code-in">google-code-in</a>
+  	
+  	<a class="ui label" href="/tags/iot" title="iot">iot</a>
+  	
+  	<a class="ui label" href="/tags/mongoose-os" title="mongoose-os">mongoose-os</a>
+  	
+  	<a class="ui label" href="/tags/openwisp" title="openwisp">openwisp</a>
+  	
+	</section>
+	
+
+
+
+	
+	<section class="ui attached inverted segment dream-categories">
+  	<div class="ui inverted accordion">
+    	
+    	<div class="title" style="color: white; padding-bottom:0.2em;">
+      	<i class="dropdown icon"></i><a href="/categories/blogging" style="color: white;" >blogging</a>     	
+    	</div>
+    	
+    	<div class="content" style="padding-left: 1em;">    		
+       	<a class="item" href="https://naviecha.github.io/post/gci/" style="color: white; padding-bottom: 0.3em; padding-top: 0.3em;">Google Code-in with OpenWISP</a>
+     	</div>
+     	
+     	
+    	<div class="title" style="color: white; padding-bottom:0.2em;">
+      	<i class="dropdown icon"></i><a href="/categories/electronics" style="color: white;" >electronics</a>     	
+    	</div>
+    	
+    	<div class="content" style="padding-left: 1em;">    		
+       	<a class="item" href="https://naviecha.github.io/post/mos/" style="color: white; padding-bottom: 0.3em; padding-top: 0.3em;">Mongoose OS on ESPer</a>
+     	</div>
+     	
+     	
+    	<div class="title" style="color: white; padding-bottom:0.2em;">
+      	<i class="dropdown icon"></i><a href="/categories/programming" style="color: white;" >programming</a>     	
+    	</div>
+    	
+    	<div class="content" style="padding-left: 1em;">    		
+       	<a class="item" href="https://naviecha.github.io/post/netjsonconfig/" style="color: white; padding-bottom: 0.3em; padding-top: 0.3em;">Testing &#34;django-netjsonconfig&#34;</a>
+     	</div>
+     	
+     	
+     </div>
+	</section>
+	
+
+
+
+<section class="ui bottom attached center aligned inverted segment">
+    
+    <p>© 2018 Alfiansyah Site</p>
+        
+    <p>Built with <a href="https://gohugo.io/" target="_blank">Hugo</a> and a cup of <img src="like.png"> </p>
+</section>
+  </div>
+</body>
+
+</body>
+</html>

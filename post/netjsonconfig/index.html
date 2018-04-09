@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+Testing &#34;django-netjsonconfig&#34;
+</title>
+  
+	
+
+
+
+	
+
+
+<script type="text/javascript">
+	var enabledPost=true 
+	var colorBG= false  
+    var enabledDimmer =  true 
+    var shToken=""
+    var shDomains=""    
+    var isMobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+	console.log("The client device is a "+(isMobile?"mobile":"PC")+".")		
+</script>
+
+  
+
+
+  
+  <meta name="author" content="Alfiansyah" />
+  <meta name="description" content="A task came up in Google Code-in which asked me to install the django-netjsonconfig module by OpenWISP. Furthermore, I&amp;rsquo;m also supposed to share the challenges I faced during the set-up process as a sort of feedback. I&amp;rsquo;ll be trying be concise in this post so, without further ado, I&amp;rsquo;m beginning with this post.
+Installing &amp;ldquo;django-netjsonconfig&amp;rdquo; The installation instructions for this this module have been well-documented on its GitHub repository. So I began the installation by creating a Python 2." />
+
+
+
+<meta name="generator" content="Hugo 0.38.1" />
+
+
+<link rel="shortcut icon" href="https://naviecha.github.io/img/defaultFav.ico">
+
+
+<link rel="canonical" href="https://naviecha.github.io/post/netjsonconfig/" />
+<link rel="alternative" href="/index.xml" title="Alfiansyah Site" type="application/atom+xml" />
+
+<link href="https://cdn.bootcss.com/semantic-ui/2.2.14/semantic.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="/css/site.css" />
+</head>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/semantic.min.js"></script>
+<body>
+  <div id="bg"><script type = "text/javascript">
+var dreamBodyBgSwitchIndex = 0
+if(colorBG) {
+    var dreamBGGradients = [
+        [],
+        ['#40e0d0', '#ff8c00', '#ff0080'], 
+        ['#3e5151', '#decba4'], 
+        ['#11998e', '#38ef7d'], 
+        ['#108dc7', '#ef8e38'], 
+        ['#fc5c7d', '#6a82fb'], 
+        ['#fc466b', '#3f5efb'], 
+        ['#c94b4b', '#4b134f'], 
+        ['#23074d', '#cc5333'], 
+    ]
+    var dreamBody = $('body')
+    var dreamFront = $('.flip-container .front')
+    var dreamBack = $('.flip-container .back')
+    
+    var dreamPrevBgIndex = 0
+    var dreamBodyBgSwitch = []
+    
+    var dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)]
+    dreamBodyBgSwitch.push(dreamBg)
+    setBackground(dreamFront, dreamBg)
+
+    setBackground(dreamBody, dreamBg)
+
+    dreamBg = dreamBGGradients[getRandomInt(0, dreamBGGradients.length)]
+    dreamBodyBgSwitch.push(dreamBg)
+    setBackground(dreamBack, dreamBg)
+    
+    function connect(arr) {
+        var str = ''
+            for (var i = 0; i < arr.length; i++) {
+                if (i !== arr.length - 1) {
+                    str += arr[i] + ', '
+                } else {
+                    str += arr[i]
+                }
+            }
+        return str
+    }
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min)
+        max = Math.floor(max)
+        var random
+        while (1) {
+            random = Math.floor(Math.random() * (max - min)) + min
+            if (random !== dreamPrevBgIndex) {
+                dreamPrevBgIndex = random
+                break
+            }
+        }
+    	return random
+    }
+    function setBackground(target, gradient) {
+        target.css({
+        background: gradient[0]
+        })
+        target.css({
+        background: 'linear-gradient(to right, ' + connect(gradient) + ')'
+        })
+    }
+}
+else {
+    var blurEff =  0.5 
+	if( false )
+	{	
+    	var images = ""
+    	var randomNumber = Math.floor(Math.random() * images.length)
+    	bgImage = 'url(' + images[randomNumber] + ')'
+    }
+    else
+    	bgImage = 'url(' + "https://raw.githubusercontent.com/UtkarshVerma/hugo-dream-plus/master/static/img/bg1.jpeg" + ')'
+    console.log("Current background: " + bgImage.substring(bgImage.indexOf("bg"),bgImage.length -1) )
+    var target = document.getElementById('bg')
+    target.setAttribute("style", "background-image:" + bgImage +"; filter:" + "blur(" + blurEff + "px)")
+}	
+</script>
+</div>
+  <div class="pusher" style="position: relative; background-color: transparent !important">
+  <div class="flipper">
+    <section class="front" style="position: fixed; overflow-x: hidden; height: 100vh">
+      
+<nav class="ui top secondary menu" style="overflow-x: auto; background-color: #00000066;">
+  <div class="item">
+       <i id="ico"class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+   </div>
+
+  <div class="item">
+    <a href="/">
+      <i id="home-ico" class="inverted big link home icon" title="Home"></i>
+    </a>
+  </div>
+
+  
+<div class="item">
+    <a href="/post">
+      <i id="archive-ico" class="inverted big link archive icon" title="Archive"></i>
+    </a>
+  </div>
+  
+
+
+  <div class="item">
+    <a href="/tags">
+      <i id="tags-ico"class="inverted big link tags icon" title="All Tags"></i>
+    </a>
+  </div>
+
+
+  <div class="item">
+    <a href="/categories">
+      <i id="cat-ico"class="inverted big link cubes icon" title="All Categories"></i>
+    </a>
+  </div>
+
+
+
+
+  <div id="sidebarBtn" class="item" onClick="$('.ui.sidebar') .sidebar('setting', 'transition', 'overlay').sidebar('toggle');">
+      <i class="inverted big link sidebar icon" title="Show Sidebar"></i>
+  </div>
+
+</nav>
+
+ 
+<div class="ui centered grid" style="margin-bottom: 1em;">
+  <div id="mobile" style="display:none;">
+  <div class="sixteen wide mobile fifteen wide tablet four wide computer column">		
+    <section class="ui top attached center aligned inverted segment">
+  <div class="ui small circular image">
+    
+    <img src="/images/avatar.jpg">
+    
+  </div>
+  <h3 class="ui header">Alfiansyah<div class="sub header" style="color: white;">A keen maker, programmer and an Instructables author.</div>
+  </h3>
+    
+	<a id="tag-category-pop" class="ui red right corner label">		
+	<i class="pointing down icon" title="Click this to pop tags and categories"></i>		
+	</a>
+     
+</section>
+
+
+	
+	<section class="ui attached center aligned inverted segment dream-tags">
+  	
+  	<a class="ui label" href="/tags/django" title="django">django</a>
+  	
+  	<a class="ui label" href="/tags/esp32" title="esp32">esp32</a>
+  	
+  	<a class="ui label" href="/tags/google-code-in" title="google-code-in">google-code-in</a>
+  	
+  	<a class="ui label" href="/tags/iot" title="iot">iot</a>
+  	
+  	<a class="ui label" href="/tags/mongoose-os" title="mongoose-os">mongoose-os</a>
+  	
+  	<a class="ui label" href="/tags/openwisp" title="openwisp">openwisp</a>
+  	
+	</section>
+	
+
+
+
+	
+	<section class="ui attached inverted segment dream-categories">
+  	<div class="ui inverted accordion">
+    	
+    	<div class="title" style="text-align: initial;">
+      	<i class="dropdown icon"></i>
+      	<a href="/categories/blogging" class="item" style="color: white;">blogging</a>
+    	</div>
+    	<div class="content">
+    	  <div class="ui link inverted list">
+     	 
+      	<div class="item" style="padding-left: 24px;">
+       	 <i class="cocktail icon"></i>
+       	 <div class="content">
+       	   <a href="https://naviecha.github.io/post/gci/" class="item">Google Code-in with OpenWISP</a>
+       	 </div>
+     	 </div>
+     	 
+      	</div>
+    	</div>
+    	
+    	<div class="title" style="text-align: initial;">
+      	<i class="dropdown icon"></i>
+      	<a href="/categories/electronics" class="item" style="color: white;">electronics</a>
+    	</div>
+    	<div class="content">
+    	  <div class="ui link inverted list">
+     	 
+      	<div class="item" style="padding-left: 24px;">
+       	 <i class="cocktail icon"></i>
+       	 <div class="content">
+       	   <a href="https://naviecha.github.io/post/mos/" class="item">Mongoose OS on ESPer</a>
+       	 </div>
+     	 </div>
+     	 
+      	</div>
+    	</div>
+    	
+    	<div class="title" style="text-align: initial;">
+      	<i class="dropdown icon"></i>
+      	<a href="/categories/programming" class="item" style="color: white;">programming</a>
+    	</div>
+    	<div class="content">
+    	  <div class="ui link inverted list">
+     	 
+      	<div class="item" style="padding-left: 24px;">
+       	 <i class="cocktail icon"></i>
+       	 <div class="content">
+       	   <a href="https://naviecha.github.io/post/netjsonconfig/" class="item">Testing &#34;django-netjsonconfig&#34;</a>
+       	 </div>
+     	 </div>
+     	 
+      	</div>
+    	</div>
+    	
+ 	 </div>
+	</section>
+	
+
+
+
+<section class="ui bottom attached center aligned inverted segment">
+    
+    <p>© 2018 Alfiansyah Site</p>
+        
+    <p>Built with <a href="https://gohugo.io/" target="_blank">Hugo</a> and a cup of <img src="like.png"> </p>
+</section>
+		
+  </div>
+  </div>
+  <div class="sixteen wide mobile fifteen wide tablet twelve wide computer column post-list">
+    <section id="post-content" class="ui secondary top attached black segment">
+      <header>
+        <h1 id="post-head" class="ui header">
+          Testing &#34;django-netjsonconfig&#34;
+          <div id= "post-subhead" class="sub header">@ Alfiansyah · Jan 14, 2018 · 3 min read · Last updated on Jan 14, 2018</div>
+        </h1>
+ 	      <hr />
+
+	
+      	
+          <div id="toc" style="background-color: #ffffff70;border: 1px solid #8a8a8a6b;border-radius: 0.5em; overflow-x: auto;">
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#installing-django-netjsonconfig">Installing &ldquo;django-netjsonconfig&rdquo;</a></li>
+<li><a href="#making-migrations-and-creating-a-superuser">Making Migrations and Creating a superuser</a></li>
+<li><a href="#running-the-test-server">Running the Test Server</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+</nav>
+          </div>
+        
+	
+      </header>
+      <article id="twemoji" class="post-content" style="margin-top: 2rem; font-size: 1.4rem;">
+  	               
+
+<p>A task came up in Google Code-in which asked me to install the <a href="https://github.com/openwisp/django-netjsonconfig">django-netjsonconfig</a> module by <a href="https://www.openwisp.org">OpenWISP</a>. Furthermore, I&rsquo;m also supposed to share the challenges I faced during the set-up process as a sort of feedback. I&rsquo;ll be trying be concise in this post so, without further ado, I&rsquo;m beginning with this post.</p>
+
+<h1 id="installing-django-netjsonconfig">Installing &ldquo;django-netjsonconfig&rdquo;</h1>
+
+<p>The installation instructions for this this module have been well-documented on its <a href="https://github.com/openwisp/django-netjsonconfig#installing-for-development">GitHub repository</a>. So I began the installation by creating a <strong>Python 2.7 Virtual Environment</strong> using <code>python2 -m virtualenv py2</code> for the sake of cleanliness on my local machine. I chose <code>python2</code> for since for this since I was also on the lookout for bugs in the module and most of the bugs seem to be related with it since it&rsquo;s a bit outdated now.<br />
+I then activated the <code>virtualenv</code> and started entering the installation commands according to the instructions in the repository. Everything went on smoothly until the <code>python setup.py develop</code> command. I got an error as shown in the below picture.</p>
+
+<p><img src="/images/netjsonconfig/django2.png" alt="develop failed" /></p>
+
+<p>Clearly, the error suggests that <strong>Django v2.0.1</strong> was being downloaded which <strong>isn&rsquo;t supported</strong> by <strong>Python 2.7</strong>. A bit of browsing led me to the conclusion that the <code>setup.py</code> needed to be modified to download <strong>older Django versions</strong> for Python 2.7. So, I added a simple <code>if-else</code> block to the django installation statement as shown in the picture.</p>
+
+<p><img src="/images/netjsonconfig/my-fix.png" alt="setup.py fix" /></p>
+
+<p>If you&rsquo;re curious about my fix,  this is the <a href="https://github.com/UtkarshVerma/django-netjsonconfig/commit/1575acbbc719e539cd8ecbffc761d8b9c2023d56">link</a>.</p>
+
+<p>Here, what&rsquo;s being done is basically:</p>
+
+<ul>
+<li>Detect <code>python</code> version used for installation using <code>sys.version_info[0]</code>.</li>
+<li>Install older Django versions if <code>sys.version_info[0]&lt;3</code>, that is <code>python2</code> is detected.</li>
+<li>Install latest version if above condition isn&rsquo;t satisfied, that is <code>python3</code> is detected.</li>
+</ul>
+
+<p>I also had to remove the django installation line from <code>requirements.txt</code> since <code>setup.py</code> was fetching the requirement names from there. After applying this fix, I re-ran the <code>python setup.py develop</code> command and there it was! The sweet smell of success. Now an <strong>older yet python2 compatible</strong> version of <strong>Django</strong> was being installed when using <code>python2</code> as clearly shown in one of the pictures below:</p>
+
+<p><img src="/images/netjsonconfig/django-v-fixed.png" alt="Older Django being downloaded" /></p>
+
+<p><img src="/images/netjsonconfig/Success!.png" alt="Successful!" /></p>
+
+<p>After this, I installed some more requirements using <code>pip install -r requirements-test.txt</code>
+This was how I&rsquo;d finished installing <code>django-netjsonconfig</code> using Python2. Now all that was left to do was to to do the migrations and run the server.</p>
+
+<h1 id="making-migrations-and-creating-a-superuser">Making Migrations and Creating a superuser</h1>
+
+<p>By referring to the instructions on the repo again, I opened the <code>tests</code> directory,
+did the migrations using <code>./manage.py migrate</code>. It was really satisfying to see all the CLI responses coloured in <strong>green</strong>. 😄
+<img src="/images/netjsonconfig/migrate.png" alt="Migrate" /></p>
+
+<p>After that, there was the superuser creation using <code>./manage.py createsuperuser</code>.</p>
+
+<p><img src="/images/netjsonconfig/superuser.png" alt="Superuser creation" /></p>
+
+<h1 id="running-the-test-server">Running the Test Server</h1>
+
+<p>I started the test server using <code>./manage.py runserver</code> and it was successful.</p>
+
+<p><img src="/images/netjsonconfig/up-and-running.png" alt="Server Up and Running!" /></p>
+
+<p>I could also now visit the server at <a href="http://localhost/admin">http://localhost:8000/admin</a>.</p>
+
+<p><img src="/images/netjsonconfig/logged-in.png" alt="Logged In" /></p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>So, that&rsquo;s how I installed the <strong>django-netjsonconfig</strong> module. Also, I&rsquo;ve commited my fixes to my <strong>forked repo</strong> <a href="https://github.com/UtkarshVerma/django-netjsonconfig">here</a>. Here&rsquo;s the <a href="https://github.com/openwisp/django-netjsonconfig/pull/71">link to my pull request</a>. That concludes this post.</p>
+
+	</article>
+    </section>
+    <footer class="ui secondary attached segment dream-tags">
+      
+      
+      <a class="ui label" href="/tags/google-code-in" title="google code in">google code in</a>
+      
+      <a class="ui label" href="/tags/openwisp" title="openwisp">openwisp</a>
+      
+      <a class="ui label" href="/tags/django" title="django">django</a>
+      
+      
+    </footer>
+     
+      <footer id="post-meta" class="clearfix">
+    
+     <a href="https://twitter.com/UtkarshVerma_">
+        <div>
+	<img class="avatar" src= "https://naviecha.github.io/images/avatar.jpg">
+        <span class="dark">Alfiansyah</span>
+        <span class="sub">A keen maker, programmer and an Instructables author.</span>
+    </div>
+    </a>
+        
+    <section id="sharing">
+<div class="facebook" href="#" onclick="window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;">
+<button class="ui facebook button"><i class="facebook icon"></i>Share</button>
+</div>
+<div class="twitter" onclick="window.open('https://twitter.com/intent/tweet?text=Read &quot;Testing \x22django-netjsonconfig\x22 &quot; by @flo_syndrome https:\/\/naviecha.github.io\/post\/netjsonconfig\/','_self')" style="margin-right: -0.3em; margin-left: -1em;">
+	<button class="ui twitter button">
+  		<i class="twitter icon"></i>
+  		Tweet
+	</button>
+</div>
+    </section>
+</footer>
+
+     
+     
+    <footer class="ui secondary bottom attached stacked segment">
+    <div id="disqus_thread"></div>
+    <script>
+   
+
+    var disqus_config = function () {
+        this.page.url = 'https:\/\/naviecha.github.io\/post\/netjsonconfig\/';  
+        this.page.identifier = '\/post\/netjsonconfig\/'; 
+    };
+(function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://' + 'naviecha' + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</footer>
+
+    
+    
+  </div>
+</div>
+
+    </section>
+    <section class="back" style="position: fixed; overflow-x: hidden; height: 100vh">
+      <nav class="ui top secondary menu" style="background-color: #00000066;">
+  <div class="item">
+    <i id="ico" class="inverted big link bullseye icon dream-flip-toggle" title="About Me"></i>
+  </div>
+    
+  <div class="item">
+    <a href="https://github.com/naviecha" target="_blank">
+      <i id="ico" class="inverted big github icon" title="GitHub"></i>
+    </a>
+  </div>
+  
+  
+  <div class="item">
+    <a href="mailto:flo.syndrome@gmail.com">
+      <i id="ico" class="inverted big mail icon" title="Email"></i>
+    </a>
+  </div>
+  
+  
+  <div class="item">
+    <a href="https://twitter.com/flo_syndrome" target="_blank">
+      <i id="ico" class="inverted big twitter icon" title="Twitter"></i>
+    </a>
+  </div>
+  
+  
+  
+
+  
+  
+  <div class="item">
+    <a href="https://www.stackoverflow.com/users/5509946/alfiansyah" target="_blank">
+      <i id="ico" class="inverted big stack overflow icon" title="stackoverflow"></i>
+    </a>
+  </div>
+  
+  
+
+  
+</nav>
+
+<div class="ui centered grid about">
+  <div id="abt" class="sixteen wide mobile fifteen wide tablet fifteen wide computer column about">
+    <section class="ui stacked segments">
+	<header class="ui inverted segment">
+    <h2 class="ui header">
+        So, Who Am I?
+    </h2>
+</header>
+<article id = "abt" class="ui inverted segment" >
+    <hr />
+
+<p><br>
+I’m just another teenager who likes <strong>writing</strong>, <strong>programming</strong> and <strong>making stuff</strong>. Even setting the title as <strong>Who Am I</strong>  for this article is reminding me of <code>whoami</code> in Linux.
+I feel the inner urge to contribute something to the Internet because I love writing and
+I believe posting something online enables users all around the globe to see your work and suggest improvements.</p>
+
+<p>Recently I&rsquo;ve also started taking interest in web designing and hosting the fruitful results of which these site and blogs are!
+I also make <strong>projects</strong> and share them online at <strong>Instructables</strong>, the link of which has been placed on the home page.
+Making stuff is just one of the things I love the most.</p>
+
+<p>That’s all that I can think of right now. Hopefully I’ll add something more to this later on. 😅</p>
+
+<p>Wanna try in touch with me?
+Use the social links above to check out my profiles. I&rsquo;d really appreciate it.</p>
+
+</article>
+
+    
+    </section>
+  </div>
+</div>
+
+    </section>
+  </div>
+  </div>
+  <script type="text/javascript" src="/js/site.js"></script>
+  <script src="/js/twemoji.min.js"></script>
+<script type="text/javascript">
+(function init(){
+    console.log("Twemoji up and making stuff colourful!");
+    twemoji.parse(document.getElementById("abt"));      
+    twemoji.parse(document.getElementById("twemoji"));                
+})()
+</script>
+
+  
+  <body>
+  <div class="ui sidebar inverted vertical menu" style="overflow: hidden !important;">
+<section class="ui top attached center aligned inverted segment">
+  <div class="ui small circular image">
+    
+    <img src="/images/avatar.jpg">
+    
+  </div>
+  <h3 class="ui header">Alfiansyah<div class="sub header" style="color: white;">A keen maker, programmer and an Instructables author.</div>
+  </h3>
+    
+	<a id="tag-category-pop" class="ui red right corner label">		
+	<i class="pointing down icon" title="Click this to pop tags and categories"></i>		
+	</a>
+     
+</section>
+
+
+	
+	<section class="ui attached center aligned inverted segment dream-tags">
+  	
+  	<a class="ui label" href="/tags/django" title="django">django</a>
+  	
+  	<a class="ui label" href="/tags/esp32" title="esp32">esp32</a>
+  	
+  	<a class="ui label" href="/tags/google-code-in" title="google-code-in">google-code-in</a>
+  	
+  	<a class="ui label" href="/tags/iot" title="iot">iot</a>
+  	
+  	<a class="ui label" href="/tags/mongoose-os" title="mongoose-os">mongoose-os</a>
+  	
+  	<a class="ui label" href="/tags/openwisp" title="openwisp">openwisp</a>
+  	
+	</section>
+	
+
+
+
+	
+	<section class="ui attached inverted segment dream-categories">
+  	<div class="ui inverted accordion">
+    	
+    	<div class="title" style="color: white; padding-bottom:0.2em;">
+      	<i class="dropdown icon"></i><a href="/categories/blogging" style="color: white;" >blogging</a>     	
+    	</div>
+    	
+    	<div class="content" style="padding-left: 1em;">    		
+       	<a class="item" href="https://naviecha.github.io/post/gci/" style="color: white; padding-bottom: 0.3em; padding-top: 0.3em;">Google Code-in with OpenWISP</a>
+     	</div>
+     	
+     	
+    	<div class="title" style="color: white; padding-bottom:0.2em;">
+      	<i class="dropdown icon"></i><a href="/categories/electronics" style="color: white;" >electronics</a>     	
+    	</div>
+    	
+    	<div class="content" style="padding-left: 1em;">    		
+       	<a class="item" href="https://naviecha.github.io/post/mos/" style="color: white; padding-bottom: 0.3em; padding-top: 0.3em;">Mongoose OS on ESPer</a>
+     	</div>
+     	
+     	
+    	<div class="title" style="color: white; padding-bottom:0.2em;">
+      	<i class="dropdown icon"></i><a href="/categories/programming" style="color: white;" >programming</a>     	
+    	</div>
+    	
+    	<div class="content" style="padding-left: 1em;">    		
+       	<a class="item" href="https://naviecha.github.io/post/netjsonconfig/" style="color: white; padding-bottom: 0.3em; padding-top: 0.3em;">Testing &#34;django-netjsonconfig&#34;</a>
+     	</div>
+     	
+     	
+     </div>
+	</section>
+	
+
+
+
+<section class="ui bottom attached center aligned inverted segment">
+    
+    <p>© 2018 Alfiansyah Site</p>
+        
+    <p>Built with <a href="https://gohugo.io/" target="_blank">Hugo</a> and a cup of <img src="like.png"> </p>
+</section>
+  </div>
+</body>
+
+</body>
+</html>
